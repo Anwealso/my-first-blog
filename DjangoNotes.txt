@@ -1,0 +1,13 @@
+________________________DJANGO NOTES________________________
+
+Creating Tables:
+1. The last step here is to add our new model to our database. First we have to
+make Django know that we have some changes in our model. (We have just created
+it!) Go to your console window and type python "$ manage.py makemigrations blog".
+2. Django prepared a migration file for us that we now have to apply to our
+database. Type "$ python manage.py migrate blog" and the output should be as
+follows:
+
+Running the server:
+"$ python manage.py runserver"
+Available at address: http://127.0.0.1:8000/
