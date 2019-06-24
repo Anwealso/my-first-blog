@@ -11,3 +11,23 @@ follows:
 Running the server:
 "$ python manage.py runserver"
 Available at address: http://127.0.0.1:8000/
+
+A note on "views":
+A view is a place where we put the "logic" of our application. It will request
+information from the model you created before and pass it to a template. We'll
+create a template in the next chapter. Views are just Python functions that are
+a little bit more complicated than the ones we wrote in the Introduction to
+Python chapter. Views are placed in the views.py file. We will add our views to
+the blog/views.py file.
+
+Useful HTML tags:
+<h1>A heading</h1> for your most important heading
+<h2>A sub-heading</h2> for a heading at the next level
+<h3>A sub-sub-heading</h3> …and so on, up to <h6>
+<p>A paragraph of text</p>
+<em>text</em> emphasizes your text
+<strong>text</strong> strongly emphasizes your text
+<br> goes to another line (you can't put anything inside br and there's no closing tag)
+<a href="https://djangogirls.org">link</a> creates a link
+<ul><li>first item</li><li>second item</li></ul> makes a list, just like this one!
+<div></div> defines a section of the page
