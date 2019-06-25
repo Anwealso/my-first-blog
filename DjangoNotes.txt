@@ -31,3 +31,27 @@ Useful HTML tags:
 <a href="https://djangogirls.org">link</a> creates a link
 <ul><li>first item</li><li>second item</li></ul> makes a list, just like this one!
 <div></div> defines a section of the page
+
+Open Django's 'interactive console':
+"$ python manage.py shell"
+
+Get an instance of the User class (and assign it to the variable me):
+me = User.objects.get(username='alexnicholson')
+
+Create a post:
+Post.objects.create(author=me, title='Sample title', text='Test')
+Post.objects.create(author=me, title='MyPost2.0', text='This is some post text i hope \_('.')_/')
+
+Viewing posts:
+SQL Queries:
+ALL (SELECT * FROM Post.objects)
+  Post.objects.all()
+FILTER (SELECT * FROM Post.objects WHERE ...=...)
+  Post.objects.filter(author=me)
+  Post.objects.filter(published_date__lte=timezone.now())
+ORDER_BY (SELECT * FROM ... ORDER BY ...)
+  Post.objects.order_by('created_date')
+  Reverse the ordering by adding - at the beginning, e.g.
+    Post.objects.order_by('-created_date')
+METHOD CHAINING (NESTED QUERIES)
+  e.g. Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
