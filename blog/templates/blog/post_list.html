@@ -1,27 +1,13 @@
-{% load static %}
+{% extends 'blog/base.html' %}
 
-<html>
-    <head>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
-
-        {% for post in posts %}
-          <div>
-            <h1><a href=""> {{ post.title }} </a></h1>
-            <p><i>{{ post.published_date }}</i></p>
-            <!-- The "|linebreaksbr" pipes the text into a filter which converts
-            linebreaks into paragraphs -->
-            <p>{{ post.text|linebreaksbr }}</p>
-          </div>
-        {% endfor %}
-    </body>
-</html>
+{% block content %}
+  {% for post in posts %}
+    <div>
+      <h1><a href="{% url 'post_detail' pk=post.pk %}"> {{ post.title }} </a></h1>
+      <p><i>{{ post.published_date }}</i></p>
+      <!-- The "|linebreaksbr" pipes the text into a filter which converts
+      linebreaks into paragraphs -->
+      <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+  {% endfor %}
+{% endblock %}
